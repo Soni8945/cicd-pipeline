@@ -15,6 +15,7 @@ pipeline {
         // 👇 This stage pulls your Git repo code into the Jenkins workspace
         stage('Checkout Code') {
             steps {
+                // git branch: 'main', url: 'https://github.com/Soni8945/cicd-pipeline'
                 // ⬇️ This is where Jenkins pulls from the Git repository (defined in Jenkins Job UI)
                 checkout scm
             }
@@ -38,3 +39,4 @@ pipeline {
             }
         }
     }
+}
