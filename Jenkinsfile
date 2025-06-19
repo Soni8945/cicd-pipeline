@@ -2,7 +2,10 @@ pipeline {
     agent {
         docker {
             image 'docker:latest'  // Use a Docker CLI image
-            args '-v /var/run/docker.sock:/var/run/docker.sock -e HOME=/home/appadmin/Desktop/jenkins' // Access host Docker
+            args '-v /var/run/docker.sock:/var/run/docker.sock\
+                    --user root \
+                    -v /home/appadmin/Desktop/jenkins/myproject:/home/appadmin/Desktop/jenkins/myproject \
+                    -e HOME=/home/appadmin/Desktop/jenkins/myproject' // Access host Docker
         }
     }
 
@@ -15,7 +18,7 @@ pipeline {
         // 👇 This stage pulls your Git repo code into the Jenkins workspace
         stage('Checkout Code') {
             steps {
-                // git branch: 'main', url: 'https://github.com/Soni8945/cicd-pipeline'
+                //git branch: 'main', url: 'https://github.com/Soni8945/cicd-pipeline'
                 // ⬇️ This is where Jenkins pulls from the Git repository (defined in Jenkins Job UI)
                 checkout scm
             }
@@ -39,4 +42,4 @@ pipeline {
             }
         }
     }
-}
+} 
