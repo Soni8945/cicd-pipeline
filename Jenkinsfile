@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'docker:latest'  // Use a Docker CLI image
-            args '-v /var/run/docker.sock:/var/run/docker.sock -e HOME=/home/jenkins' // Access host Docker
+            args '-v /var/run/docker.sock:/var/run/docker.sock -e HOME=/home/appadmin/Desktop/jenkins' // Access host Docker
         }
     }
 
